@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="demo.js"></script>
+</head>
+<style>
+    #currentPrice {
+        margin: 10px;
+        /* color: red; */
+        font-size: 20px;
+        font-weight: 700;
+
+    }
+
+    /* #shuxian,#add1 ,#addPrice ,#add2 ,#percentage,.percentage{
+        color:red;
+    } */
+    .addClass * {
+        color: red;
+    }
+
+    .plusClass *{
+        color: green;
+    }
+</style>
+
+<body>
+    <div class="addClass" id="addClass">
+        <span id="currentPrice">6.3</span><span id="unit">元</span>
+        <span id="shuxian">|</span>
+        <label for="" id="addPrice">+0.20</label>
+        <label for="" id="percentage">+4.1%</label>
+
+    </div>
+</body>
+<script>
+    function refreshData() {
+        var arr=hq_str_sz000725.split(',')
+        console.log(arr[3]);
+        arr[3] = (Math.random(-1,1)*6+6).toFixed(2)
+        //最新价格
+        var obj=document.getElementById('currentPrice');
+        obj.innerHTML=arr[3];
+        //涨幅
+        var addPlus=document.getElementById('addPrice');
+         //百分比
+         var percentage=document.getElementById('percentage');
+         var addClass=document.getElementById('addClass');
+
+        if(arr[3]<arr[2]){
+            addPlus.innerHTML=(arr[3]-arr[2]).toFixed(2);
+            percentage.innerHTML=((arr[3]-arr[2])/arr[2]*100).toFixed(2)+'%';
+
+            addClass.className='plusClass';
+
+
+        }else{
+            addPlus.innerHTML='+'+(arr[3]-arr[2]).toFixed(2);
+            percentage.innerHTML='+'+((arr[3]-arr[2])/arr[2]*100).toFixed(2)+'%';
+            addClass.className='addClass';
+        }
+       
+       
+    }
+    var timer = null;
+    if (timer != null) clearInterval(timer);
+    timer = setInterval(function () {
+        refreshData()
+    }, 1000)
+
+</script>
+
+</html>
