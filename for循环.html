@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="demo.js"></script>
+</head>
+
+<body>
+    <script>
+        var objArr = hq_str_sz000725.split(',');
+        //打印今日最高价
+        // console.log(objArr);
+        // for(var i=0;i<objArr.length;i++){
+        //    for (let i = 0; i < nameArray.length; i++) {
+        //        const element = nameArray[i];
+        //        if(element=='今日最高价'){
+        //            console.log(objArr[i])
+        //        }
+
+        //    }
+
+        //打印除最高价以外的信息
+        var num = null;
+        for (let j = 0; j < nameArray.length; j++) {
+            const element2 = nameArray[j];
+            if (element2 == '今日最高价') {
+                num = j;
+            }
+
+        }
+        for (let i = 0; i < objArr.length; i++) {
+            const element = objArr[i];
+            // console.log(element);
+            if (i == num) {
+                continue
+            }
+            console.log((nameArray[i] ? nameArray[i] : '') + element)
+
+
+
+        }
+    </script>
+</body>
+
+</html>
