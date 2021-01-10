@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var fruits = ['apple', 'apple', 'apple', 'orange', 'orange', 'banana'];
+        //去掉所有的apple;
+        //改变数组：pop() 删除最后一个元素并返回，shift() 删除第一个元素并返回 splice(index,n) 从index开始删除，个数为n
+        //不改变数组:slice(index,n) 从index开始删除，个数为n,并返回删除元素数组
+        while (fruits.indexOf('apple')>=0){
+            fruits.splice(fruits.indexOf('apple'),1);
+        }
+        console.log(fruits);
+    </script>
+
+</body>
+
+</html>
